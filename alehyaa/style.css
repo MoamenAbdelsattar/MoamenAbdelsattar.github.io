@@ -673,7 +673,7 @@ font-size: 30px;
     		display: block;
 		}
         .clearfix::after {
-            content: &quot;&quot;;
+            content: '';
             display: table;
             clear: both;
         }
