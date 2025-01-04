@@ -1,0 +1,40 @@
+
+#color-mode-toggle:checked ~ #bodyContainer {
+	--card3d-shadow: 0 4px 12px 0 rgb(251 255 0), 0 6px 20px 0 rgba(255, 255, 0, 1);
+    --card3d-shadow: 0 4px 12px 0 rgb(255 255 255), 0 6px 20px 0 rgb(255 255 255);
+	
+}
+body:has(>#color-mode-toggle:checked){
+	background: linear-gradient(151deg, hsl(112 40% 10% / 1) 0%, hsl(208 100% 12% / 1) 100%);
+	background: #131516;
+}
+#color-mode-toggle:checked ~ #bodyContainer #bodyWrap, #color-mode-toggle:checked ~ #mainNav, #color-mode-toggle:checked ~ #mySidebar  {
+  filter: contrast(90%) invert(90%) hue-rotate(180deg) !important;
+  -ms-filter: invert(100%);
+  -webkit-filter: contrast(90%) invert(90%) hue-rotate(180deg) !important;
+}
+
+#color-mode-toggle:checked ~ #bodyContainer :is(#bodyWrap, #mainNav) :is(img, video, iframe, canvas, svg:not([invertable]), embed[type="application/x-shockwave-flash"], object[type="application/x-shockwave-flash"], [no-dark], span.react, *[style*="url("]), #color-mode-toggle:checked ~ #bodyContainer :is(.رسالة,.رسالة2)::before{
+  filter: invert(100%) hue-rotate(-180deg) !important;
+  -ms-filter: invert(100%) !important;
+  -webkit-filter: invert(100%) hue-rotate(-180deg) !important;
+}
+
+#color-mode-toggle:checked ~ #mainNav {
+	box-shadow: rgba(255, 255, 255, 0.5) 0px 4px 5px 0px;
+}
+
+/*#color-mode-toggle:checked ~ #bodyContainer:not(:has( .chat-style)) .card3d {
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 1), 0 6px 20px 0 rgba(255, 255, 255, 1);
+}*/
+
+#color-mode-toggle:checked ~ #headWrap {
+  /*background: #000;*/
+	filter: brightness(0.7);
+}
+
+#color-mode-toggle:checked ~ .medium-zoom-overlay {
+    background: #000 !important;
+}
+	/*]]>*/
+  

@@ -1,0 +1,738 @@
+.halaman-kanan,.halaman-kiri{transition:all .3s ease-in-out; border-radius: 20px;background: #fff; color: blue;position:relative;width:40%;min-height:170px;box-sizing:border-box;margin:0; overflow: hidden;box-sizing:border-box;}
+.halaman{margin-bottom: 40px;}
+.halaman-kanan:hover ,.halaman-kiri:hover { transform: scale(1.05); /*margin-bottom: 10px;*/ }
+.halaman-kiri{float:right;text-align:right;}
+.halaman-kanan{float:left;text-align:left;}
+.current-pageright,.current-pageleft,.halaman-kanan a,.halaman-kiri a{font-size:16px;font-weight:bold;background:0 0;text-decoration:none;line-height:1.1}
+
+
+.halaman h5 {font-weight: bold;margin:0;font-size: 17px;}
+
+.halaman img{top:0;width:100%;height:100%;z-index:1; border-radius: 20px; max-height: 145px; border: 2px dashed #555;margin-bottom: 10px;}
+
+.isihalaman-kanan img{left:0}
+
+.isihalaman-kiri img{right:0}
+
+.halaman-kiri a div, .halaman-kanan a div,.current-pageright,.current-pageleft {bottom: 10px;z-index: 3;width: 100%;padding:0 35px;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+
+.halaman-kiri a div,.current-pageright{right:0;padding-right:40px;}
+
+.halaman-kiri a div h6:before {
+    content: '';
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath d='M472-480 288-664l88-88 272 272-272 272-88-88 184-184Z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: 108%;
+    background-color: blue;
+    margin-right: -15px;
+    padding-left: 20px;
+}
+
+.halaman-kanan a div,.current-pageleft  {left:0;padding-left:40px}
+
+.halaman-kanan a div h6:after{content:'';
+   background-color:blue;
+   -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath d='M560-208 288-480l272-272 88 88-184 184 184 184-88 88Z'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath d='M560-208 288-480l272-272 88 88-184 184 184 184-88 88Z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: 108%;
+   margin-left: -15px; padding-right: 20px}
+
+.halaman h6,.pager-title-right{font-size: 15px;font-weight: 900;margin: 0;}
+
+
+  .blog-pager-older-link, .blog-pager-newer-link{padding:0px;}
+  .blog-pager-older-link, .blog-pager-newer-link,.blog-pager-older-link:hover, .blog-pager-newer-link:hover{ background-color:#f5f5f5;}
+
+  @media screen and (max-width:600px){.halaman-kiri, .halaman-kanan {
+    width: 95%;
+    float: none;
+    margin: auto;
+    margin-bottom: 10px;
+	}
+}
+#blog-pager-newer-link, #blog-pager-older-link{
+    float: none;
+}
+
+div#blog-pager {
+    overflow: visible;
+    border: 0px;
+}
+
+
+
+p.ملخص {
+    background: #e5fad7;
+    padding: 7px;
+    font-size: smaller;
+    border-radius: 10px;
+}
+p.ملخص:before {
+    content: "موجز: ";
+    color: #29a329;
+    font-weight: bold;
+}
+.وصف {
+    width: 95%;
+    font-size: 100%;
+    background: #ccc;
+    color: #000;
+    padding: 10px;
+    text-align: center;
+    margin-top: 0;
+    padding: 5px;
+}
+#renderTo > img {
+max-width: 80%;
+height:auto;
+}
+@media screen and (max-width:600px){
+#renderTo > img {
+max-width: 100%;
+height:auto;
+}
+}
+
+q::before{
+    content:'«';
+}
+
+q::after{
+    content:'»';
+    
+}
+
+
+/*
+			<![CDATA[*/
+sal::before {
+    content: "ﷺ";
+}
+hadeeth {
+    color: #000073;
+}
+span.نص, q, q2{
+    display: inline;
+    color: #bd0032
+}
+red, blue, green{
+    display: inline;
+    color: #bd0032;
+}
+blue{
+    color: blue;
+}
+.معاني blue {
+    color: hsl(240 100% 33% / 1);
+}
+green{
+    color: #006700;
+}
+span.نص::before, span.قر::before, q::before, quran:before, hadeeth:before{
+    content:'«';
+}
+span.قر::before, quran:before{
+    content:'﴿';
+}
+span.نص::after, span.قر::after, q::after, quran:after, hadeeth:after{
+    content:'»';
+    
+}
+span.قر::after, quran:after{
+    content: '﴾';
+}
+
+/*م﴿﴾*/
+/*علامة بداية الحزب: ۞
+آية: ۝ 
+صفحة: ؃ 
+
+*/
+span.قر, quran{
+    color:#007300;
+}
+int {
+    /*font-style: italic;*/
+    opacity: 0.7;
+}
+int:before {
+    content: '(';
+}
+int:after {
+    content: ')';
+}
+
+
+hadeeth{
+    color: #000073;
+}
+sal:before{
+    content: "ﷺ";
+}
+jal:before{
+    content: "ﷻ";
+}
+rah:before{
+    content: "﵀"; 
+    /*رحمه الله*/
+}
+besm {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: xxx-large;
+    /*margin-top: 15vh;
+    margin-bottom: 15vh;*/
+}
+besm:before{
+    content:"﷽";
+}
+span.كل, word{
+    font-weight: bold;
+}
+
+.chat-root {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    --margin-same-sender:3.5px;
+}
+
+.chat-root h3 {
+    background: #ffe462;
+    color: #222;
+    text-align: center;
+    border: unset;
+    border-radius: 10px;
+    box-shadow: var(--wide-box-shadow);
+    max-width: 500px;
+    padding: 5px 10px;
+    margin: 1em auto;
+    font-size: 20px;
+	border: unset;
+	width: unset;
+	min-width: 340px;
+}
+
+.chat-root > img {
+    margin-top: 10px;
+    max-width: 90%;
+    /*border: #000 2px dashed;*/
+    box-sizing: border-box;
+}
+
+/*.hentry:has( .chat-style) :is(.post-title, .post-data)*/
+ body[data-pagetype='item'] .post-title, body[data-pagetype='item'] .post-data{
+    background: #fff;
+    padding:10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+    max-width:700px;
+    margin:auto;
+    margin-bottom:1em;
+}
+
+.hentry:has( .chat-style) .post-data{
+    max-width: 500px;
+}
+
+.hentry:has( .chat-style) {
+    background: #0000;
+    box-shadow: unset;
+	border:unset;}
+
+
+.رسالة,.رسالة-متكلم,.رسالة2 {
+    --border-radius: 10px;
+    --bg-color: #fff;
+	--bg-color: #f5f5f5;
+    /* box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px, rgba(0, 0, 0, 0.19) 0px 6px 20px 0px; */
+    --avatar-width: 35px;
+    margin: 12px var(--avatar-width) 0;
+    /*margin: 1em 25px;*/
+    box-shadow: var(--narrow-box-shadow);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    /* -webkit-mask: radial-gradient(100% 100% at 100% 0,#0000 99%,#000 102%) 
+      100% calc(100% - var(--s))/var(--s) var(--s) no-repeat border-box,
+    linear-gradient(#000 0 0) padding-box; */
+    position: relative;
+    background: var(--bg-color);
+    text-indent: 0;
+    --avatar: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"  fill="%23e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>');
+    --avatar-bg: #aa0000;
+    --name-color: var(--avatar-bg);
+    --bg-size: 90%;
+    width: fit-content;
+    max-width: calc(100% - 70px);
+    --float: right;
+    page-break-inside: avoid;
+}
+/*:is(.رسالة,.رسالة2)::before*/
+ .رسالة::before, .رسالة2::before{
+    
+    box-shadow: var(--narrow-box-shadow);
+    /*position: sticky;*/
+	top: 0.5em;
+    /*top:calc(0.5em + var(--main-nav-shift));*/
+    box-sizing: border-box;
+    padding: 0px;
+    height: calc(var(--avatar-width) - 5px);
+    width: calc(var(--avatar-width) - 5px);
+    display: block;
+    content: "";
+    float: right;
+    background: var(--avatar) var(--avatar-bg);
+    background-size: var(--bg-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: -42px;
+    margin-top: -10px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+
+
+/*:is(.رسالة,.رسالة2*/)
+ .رسالة, .رسالة2{
+    border-top-right-radius: 0;
+}
+
+/*:is(.رسالة, .رسالة-متكلم, .رسالة2)::after */
+.رسالة::after, .رسالة2::after, .رسالة-متكلم::after{
+    content: "";
+    display: block;
+    height: 17px;
+    width: 10px;
+    position: absolute;
+    top: -0.0px;
+    right: -5px;
+    /* z-index: 5; */
+    background: linear-gradient(309deg, rgb(0 0 0 / 0%) 50%, var(--bg-color) 54%);
+    /* box-shadow: rgba(16, 35, 47, 0.15) 0px 1px 2px 0px; */
+    border-radius: 2px;
+    /* mask: linear-gradient(90deg, rgba(0,0,0,1) 45%, rgba(255,255,255,1) 45%); */
+    box-sizing: border-box;
+}
+
+.رسالة-متكلم {
+    --bg-color: rgb(227, 254, 224);/*#b9ffb6*/
+    border-top-left-radius: 0;
+    border-top-right-radius: var(--border-radius);
+    /* max-width: 31em; */
+    /* margin-right: auto; */
+    margin-left: 15px;
+    margin-right: var(--avatar-width);
+    --float: left;
+}
+.رسالة-متكلم::after {
+    left: -10px;
+    right:unset;
+    background: linear-gradient(-309deg, rgb(0 0 0 / 0%) 50%, var(--bg-color)54%);
+}
+
+
+
+.sender::before {
+    content: attr(sender);
+    font-weight: bold;
+    color: var(--avatar-bg);
+    /* line-height: 0.5lh; */
+    font-size: smaller;
+    display: block;
+    line-height: 0.8;
+    margin-bottom: 0.5em;
+    
+}
+
+  .رسالة2:not(story *)::after {
+        left: -5px;
+        right:unset;
+        background: linear-gradient(-309deg, rgb(0 0 0 / 0%) 50%, var(--bg-color)54%);
+    }
+    .رسالة2:not(story *) {
+        border-top-left-radius: 0;
+        border-top-right-radius: var(--border-radius);
+        --float: left;
+        align-self: flex-end;
+    }
+    .رسالة2:not(story *)::before {
+        margin-left: -42px;
+        margin-right:unset;
+        float: left;
+    }
+
+:is(.رسالة,.رسالة2,.رسالة-متكلم) .رسالة {
+    background: color-mix(in hsl, var(--avatar-bg) 12%, transparent);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    /* height: 1lh; */
+    overflow: hidden;
+    max-width: min(33em,80%);;
+    border-right: 3px solid var(--name-color);
+    border-radius: var(--border-radius);
+    /* font-size: smaller; */
+    margin: 0.25em 10px;
+    --float: unset;
+}
+:is(.رسالة,.رسالة2,.رسالة-متكلم) .رسالة::before, :is(.رسالة,.رسالة2,.رسالة-متكلم) .رسالة::after{
+    content: unset;
+}
+
+
+
+/*:where(.chat-root, article, group,story)>div:where(:not(.رسالة):not(.رسالة2)) {
+    --border-radius: 10px;
+    --bg-color: #fff;
+    box-shadow: var(--wide-box-shadow);
+    background: var(--bg-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    width: fit-content;
+    margin: 1em auto 0;
+}*/
+div.فارغ{
+    display: none;
+}
+div.خبر {
+    padding: 5px;
+    font-size: smaller;
+    border-radius: 5px;
+    line-height: 1;
+    background: #ffffa1;
+}
+div.حد, p.حد {
+    align-self: flex-start;
+    margin: 1em 0;
+}
+
+story {
+    display: table;
+    --margin: 30px;
+    width: calc(100% - var(--margin));
+    --story-color: #666900;
+    /* overflow-y: auto; */
+    /* overflow-x: visible; */
+    border-left: 5px dotted var(
+    --story-color);
+    position: relative;
+    margin-left: var(--margin);
+}
+
+story:before, story::after {
+    content: "";
+    clear: both;
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    background: var(--story-color);
+    border-radius: 0px 10px 10px 0;
+    border-radius: 100px;
+    left: -19px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='%23FFFFFF'%3E%3Cpath d='m228-240 92-160q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 23-5.5 42.5T458-480L320-240h-92Zm360 0 92-160q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 23-5.5 42.5T818-480L680-240h-92Z'/%3E%3C/svg%3E");
+}
+story:after {
+    /* content: ""; */
+    /* clear: both; */
+    /* display: block; */
+    /* position: absolute; */
+    top: unset;
+    bottom: 0;
+    transform: rotate(180deg);
+}
+.hentry:has( .chat-style) span.hamd {
+    background: #fff;
+    box-shadow: rgba(16, 35, 47, 0.15) 0px 1px 2px 0px;
+    border-radius: 10px;
+    margin: 10px;
+    /* display: block; */
+    padding: 5px;
+}
+
+
+/*.hentry:has( .chat-style)*/ span.thankyou {
+    margin-top: 2em;
+    border-radius: 10px;
+    display: block;
+    overflow: hidden;
+    box-shadow: rgba(16, 35, 47, 0.15) 0px 1px 2px 0px;
+}
+
+/*.hentry:has( .chat-style)*/ .author-profile.card3d {
+    background: #fff;
+}
+
+/*.hentry:has( .chat-style) div#plants {
+    border-radius: 10px;
+    overflow: hidden;
+}*/
+
+/*.hentry:has( .chat-style)*/ .share {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(16, 35, 47, 0.15) 0px 1px 2px 0px;
+    width: 100%;
+    max-width: 650px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+react{
+    display:block;
+}
+.react {
+    display: inline-block;
+    background: #0003;
+    border-radius: 25px;
+    padding-right: 5px;
+    padding: 5px;
+    box-shadow: var(--narrow-box-shadow);
+    margin: 0 3px;
+    font-size: smaller;
+	line-height: 1;
+}
+
+.react::before {
+    content: attr(count);
+    margin: 0px 5px;
+    font-weight: bold;
+}
+
+.react::after {
+    content: attr(emoji);
+}
+
+/*Poetry Start*/
+po{ /*poem*/
+    --po-base-width: 9px;
+    --po-side-border: 0px;
+    --po-base-width-line:1.2ch;
+    --po-top-bottom-padding: 0;
+	display:block;
+	margin:0;
+	margin:auto;
+	counter-reset: wordMeaning 0;
+
+    padding: var(--po-top-bottom-padding) 1em;
+    border: solid 0px;
+
+    border-right-width: var(--po-side-border);
+    border-left-width: var(--po-side-border); 
+    border-radius: 5px;
+    max-width: 100%;
+    width: fit-content;
+    position: relative;
+    /*overflow: hidden;*/
+    align-items: center;
+    
+}
+po word, po strong{
+    font-weight: normal;
+    color: blue;
+}
+div[po]:has([أبيض]) {
+    background: #0000 !important;
+    border: unset;
+}
+
+po[بحر]::before {
+    content: "[بحر " attr(بحر)"]";
+    padding: 3px;
+    font-size: 12px;
+    text-align: center;
+    display: block;
+}
+
+po[س] { /*سطر*/
+    --po-max-width: calc(var(--po-base-width-line) * 32);
+    width: var(--po-max-width);
+    max-width: 100%;
+}
+po[س][ص]{
+	--po-max-width: calc(var(--po-base-width-line) * 27);
+}
+po[س][صص]{
+	--po-max-width: calc(var(--po-base-width-line) * 22);
+}
+po[س][ك]{
+	--po-max-width: calc(var(--po-base-width-line) * 37);
+}
+po[س][كك]{
+	--po-max-width: calc(var(--po-base-width-line) * 42);
+}
+po p {
+    text-indent: 0;
+}
+po sup{
+    line-height: 0;
+
+    /* The following rules (or similar) likely come from browser 
+     * style and are not needed
+     */
+    font-size: smaller;
+    vertical-align: super;
+}
+po sup:not(.يد):not(.مك){
+    counter-increment: wordMeaning 1;
+}
+po sup:not(.يد)::after{
+    content: counter(wordMeaning);
+    content: " (" counter(wordMeaning) ")";
+}
+div.معاني{
+    counter-reset: wordMeaning 0;
+}
+div.معاني sup{
+    counter-increment: wordMeaning 1;
+}
+div.معاني sup::after{
+    content: counter(wordMeaning);
+    content: "(" counter(wordMeaning) ")";
+}
+po sup, div.معاني sup{
+    color: #A2108C;
+    color: #E60000;
+    color: hsl(117 34% 42% / 1);
+}
+
+
+po.و{ 
+/*شطر واحد*/
+	text-align: center;
+}
+po.و.ح{ 
+/*حاذي*/
+	text-align-last: justify;
+}
+
+/*text-align-last: justify;*/
+
+/*Grid poem*/
+
+po:not([س]) bayt {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: calc(var(--po-base-width) * 3);;
+    width: 100%;
+    /* display: flex; */
+    justify-content: center;
+    position: relative;
+}
+po[س]:not([one]) p[ri] {
+    text-align: right;
+    margin: 0;
+}
+po[س]:not([one]) p[le] {
+    text-align: left;
+    margin: 0.0em;
+}
+bayt[single] {
+    display: block !important;
+    text-align: center;
+}
+
+po p[ri]{
+    text-align: left;
+    /*line-height: 1cm;*/
+    margin: 0.0em;
+}
+
+po p[le]{
+    text-align: right;
+    margin: 0.0em;
+    /*line-height: 1cm;*/
+}
+po:not([س]):not([one]) p[le]:after {
+    content: '∴';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: auto;
+}
+div.معاني {
+    padding: 0px 5px;
+    font-size: calc(var(--base-font-size) - 2px);
+    background: #eee;
+    border-radius: 10px;
+    /* width: 80%; */
+    margin: auto;
+    margin-bottom: 0.5em
+}
+
+div.معاني p {
+    margin: 0;
+    display: inline-block;
+}
+
+po p[empty] {
+    text-align: center !important;
+    font-weight: bold;
+}
+div[po] {
+    --border-color: #85a329;
+    --border-color: #4729a3;
+    background: #e5fad7 !important;
+    background: color-mix(in srgb, var(--border-color), #fff 90%) !important;
+    border-radius: 10px;
+    border-right: 5px var(--border-color) solid;
+    border-left: 5px var(--border-color) solid;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+div[po]:has(po[عدد]), div[po]:has(po[عدد-خاص]) {
+    --border-color: #29a329;
+    
+}
+
+/*#renderTo{
+    counter-reset: bayt 0;
+}*/
+
+po[عدد]{
+    padding: var(--po-top-bottom-padding) 2.5em var(--po-top-bottom-padding) 1em;
+}
+
+po[عدد-خاص]{
+    --عدد-خاص: 1;
+    padding: var(--po-top-bottom-padding) 2.5em var(--po-top-bottom-padding) 1em;
+    /*counter-reset: bayt var(--عدد);*/
+    counter-reset: bayt-specific calc(var(--عدد-خاص) - 1);
+}
+
+div.عدد-شعر{
+    counter-reset: bayt 0;
+}
+
+po[عدد] bayt::before {
+    counter-increment: bayt;
+    content: counter(bayt) " |";
+    display: inline;
+    position: absolute;
+    /* margin-right: -5%; */
+    text-align: right;
+    transform: translateX(calc(100% + 5px));
+    color: var(--border-color);
+}
+po.مكرر[عدد] bayt::before {
+    counter-increment: unset !important;
+}
+po[عدد-خاص] bayt::before {
+    counter-increment: bayt-specific;
+    content: counter(bayt-specific) " |";
+    display: inline;
+    position: absolute;
+    /* margin-right: -5%; */
+    text-align: right;
+    transform: translateX(calc(100% + 5px));
+    color: var(--border-color);
+}
+
+
+/*Poetry End*/
