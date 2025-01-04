@@ -653,21 +653,7 @@ font-size: 30px;
             width: 90vw;
         }
       }
-      	/*#shadow-overlay{
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          z-index: 1;
-          display: none;
-          transition: 0.5s;
-          background: #00000000;
-      }
-      .shadow-overlay-appear{
-      	display:block !important;
-      	background: #000000dd !important;
-      }*/
+      	
         .sidebar-open-shift-main{
           width: var(--sidebar-width);
         }
@@ -732,12 +718,12 @@ font-size: 30px;
         }
           @media screen and (max-width:600px){#random-posts, .post-outer .featured-posts{width:100%;margin:auto;float:none;margin-bottom: 10px;}}
         #random-posts::before {
-            content: &#39;اقرأ أيضا&#39;;
+            content: 'اقرأ أيضا';
             display: block;
       		font-weight: bold;
         }
         .featured-posts::before {
-            content: &#39;اخترنا لكم&#39;;
+            content: 'اخترنا لكم';
             display: block;
       		font-weight: bold;
         }
