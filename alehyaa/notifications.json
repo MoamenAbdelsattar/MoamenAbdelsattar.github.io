@@ -1,0 +1,42 @@
+[
+    {
+        "time": 0,
+        "title": "أهلا وسهلا",
+        "options":{
+            "body": "ومرحبا بك!",
+            "dir": "rtl",
+            "data":{
+                "url":"https://badmedicine.pages.dev/"
+            }
+        },
+        "link": "https://badmedicine.pages.dev/"
+    },
+    {
+        "time": 1,
+        "title": "أهلا وسهلا 2",
+        "options":{
+            "body": "ومرحبا بك! 2",
+            "dir": "rtl",
+            "icon":"/icon2.png",
+            "requireInteraction": true,
+            "data":{
+                "url":"https://badmedicine.pages.dev/"
+            }
+        },
+        "link": "https://badmedicine.pages.dev/"
+    },
+    {
+        "time": 2,
+        "title": "تجربة",
+        "options":{
+            "body": "هذه تجربة للإشعارات اليومية لموقع الطب السيء",
+            "dir": "rtl",
+            "icon":"/icon2.png",
+            "requireInteraction": true,
+            "data":{
+                "url":"https://badmedicine.pages.dev/"
+            }
+        },
+        "link": "https://badmedicine.pages.dev/"
+    }
+]

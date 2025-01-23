@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html class="loading" lang="ar">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="/alehyaa/favicon.ico">
+        <link rel="manifest" href="/alehyaa.json" />
+        <meta content="width=device-width, initial-scale=1.0,user-scalable=yes, minimum-scale=0.5, maximum-scale=4.0" name="viewport">
+        <meta property="og:image" content="/alehyaa/icon.png" />
+    </head>
+    <body>
+        <link rel="stylesheet" href="/alehyaa/app.css"/>
+        <div id='loading-frame'>
+            <div id="loading-frame-content">
+            <img alt="" height="150" loading="lazy" src="/alehyaa/icon.png" style="margin: auto;border-radius: 100%;" width="150">
+            <div id="loader"></div>
+            </div>
+
+            <style>
+                #loading-frame {
+                    position: fixed;
+                    z-index: 5;
+                    width: 100vw;
+                    height: 100vh;
+                    background: #eee;
+                    transition: 0.3s;
+                    box-sizing: border-box;
+                    margin: 0;
+                    top: 0;
+                }
+                #loading-frame-content {
+                    margin: auto;
+                    display: block;
+                    margin-top: 50vh;
+                    translate: 0 -50%;
+                    text-align: center;
+                }
+                #loader {
+                  width: 50px;
+                  aspect-ratio: 1;
+                  border-radius: 50%;
+                  border: 8px solid lightblue;
+                  border-right-color: #0075ff;
+                  animation: l2 1s infinite linear;
+                  margin: auto;
+                  box-sizing: border-box;
+                  margin-top: 10px;
+                }
+                @keyframes l2 {to{transform: rotate(1turn)}}
+                html.loading{
+	                overflow:hidden;
+                }
+            </style>
+            <noscript>
+                <style>
+                    #loading-frame{display: none;}
+                    html.loading{
+                        overflow: auto;
+                    }
+                </style>
+            </noscript>
+        </div>
+        <a href="https://al-ehyaa.blogspot.com/" id="alehyaa-head">
+            <div id="headWrap">
+            <img alt="مشروع الإحياء" loading="lazy" src="/alehyaa/logo.png" width="728" style="max-width: 100%;height: auto;">
+
+            </div>
+        </a>
+        <div id="subscribe">
+                        <div id="no-chrome" style="display: none;">
+                            <h3>متصفحك لا يدعم تطبيقات الويب التقدمية</h3>
+                            <div>إذا كنت تريد مني إرسال إشعارات لك عندما أنشر فصلا أو مقالا جديدا، يرجى زيارتي من متصفح آخر مثل Chrome أو Brave أو Edge.</div>
+                        </div>
+                        <div id="no-pwa" style="display: none;">
+                            <h3>متصفحك قديم</h3>
+                            <div>إذا كنت تريد مني إرسال إشعارات لك عندما أنشر فصلا أو مقالا جديدا، يرجى تحديث متصفحك ثم إعادة زيارة الموقع.</div>
+                        </div>
+                        <div id="request-install-frame">
+                            <h3>ثبت تطبيق (مشروع الإحياء) على متصفحك</h3>
+                            <div>إذا كنت تريد مني إرسال إشعارات إليك عند نشر أي جديد على الموقع، يمكنك تثبيت الموقع على متصفحك والسماح له بإرسال الإشعارات إلى جهازك.</div>
+                            <button id="subscribe-button" disabled>اشترك</button>
+                            <div id="update-notice">إذا كان الزر رماديا أو لا يعمل، ربما تحتاج لتحديث متصفحك أولا.</div>
+                        </div>
+                        <div id="request-notify-frame" style="display: none;">
+                            <div>اسمح للموقع بإرسال الإشعارات إليك حتى تصل إلى جهازك</div>
+                        </div>
+                        <div id="success-frame" style="display: none;">
+                            <div id="success-icon"></div>
+                            <h4> كل شيء جاهز!</h4>
+                            <div id="subcribe-detail">جهازك مستعد لاستقبال الإشعارات من الموقع.</div>
+                        </div>
+        </div>
+    </body>
+    <script src="/alehyaa/web-utils.js"> </script>
+    <script src="/alehyaa/app.js"> </script>
+</html>

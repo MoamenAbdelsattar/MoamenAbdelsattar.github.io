@@ -736,3 +736,32 @@ po[عدد-خاص] bayt::before {
 
 
 /*Poetry End*/
+
+
+
+#quick-subscribe {
+    cursor: pointer;
+    margin-top: 1em;
+    font-family: 'Noto Sans Arabic';
+    width: fit-content;
+    margin: auto;
+    margin-top: 1em;
+    padding: 1em;
+    background: linear-gradient(45deg,#00f,#00cc94);
+    color: white;
+    fill: white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px #999;
+    display: block;
+}
+#quick-subscribe::before {
+    content: '';
+    display: inline-block;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40px' viewBox='0 -960 960 960' width='40px' fill='white'%3E%3Cpath d='M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160ZM480-80q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80Z'/%3E%3C/svg%3E");
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    float: right;
+    /* height: 94%; */
+}

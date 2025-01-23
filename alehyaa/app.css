@@ -1,0 +1,168 @@
+
+/* arabic */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tajawal/v10/Iurf6YBj_oCad4k1l_6gHrRpiYlJ.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+
+body{
+    margin: 0;
+    background: #eee;
+    direction: rtl;
+    font-family: 'Tajawal';
+    font-size: 16pt;
+}
+div#request-install-frame {
+    background: #990000;
+    padding: 1em;
+    border-radius: 1em;
+    color: #ffffff;
+}
+
+div#subscribe h3::before {
+    content: unset;
+}
+
+button#subscribe-button {
+    background: #009238;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 1em;
+    font-size: larger;
+    padding: 0.5em;
+    border: 0 none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Tajawal';
+}
+button#subscribe-button[disabled] {
+    cursor: unset;
+    filter: contrast(0.1);
+}
+div#update-notice {
+    font-size: smaller;
+    margin-top: 1em;
+}
+div#subscribe {
+    text-align: center;
+    height: 100vh;
+    max-width: 900px;
+    margin: auto;
+    padding: 1em;
+    box-sizing: border-box;
+}
+div#request-notify-frame::before, div#request-install-frame::before{
+    display: block;
+    content: '';
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background-size: 100%;
+    background: url("bell.png");
+    background-size: 100%;
+    margin: auto;
+}
+div#request-notify-frame::before{
+    filter: brightness(0);
+}
+div#request-notify-frame {
+    background: #fffa00;
+    color: #000;
+    padding: 1em;
+    border-radius: 1em;
+}
+div#success-frame {
+    background: #006200;
+    color: white;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+div#success-icon {
+    margin: auto;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background: url("check.png");
+    background-size: 100%;
+}
+div#no-pwa::before, div#no-chrome::before {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 1/1;
+    height: auto;
+    content: '';
+    background: url("belloff.png");
+    background-size: 100%;
+    margin: auto;
+}
+div#no-pwa, div#no-chrome {
+    background: #9c0000;
+    color: white;
+    padding: 1em;
+    border-radius: 1em;
+}
+.hide{
+    opacity: 0;
+    pointer-events: none;
+}
+
+div#subscribe > div {
+    margin-top: 50vh;
+    translate: 0 -50%;
+}
+#alehyaa-head{
+    border-bottom: unset;
+    display: block;
+    text-align: center;
+    padding: 1em;
+    background: #0075ff;
+    box-shadow: #0075ff 0px 20px 20px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+#alehyaa-head-2 {
+    border-bottom: unset;
+    display: block;
+    text-align: center;
+    padding: 1em;
+    background: #0075ff;
+    box-shadow: #0075ff 0px 20px 20px 20px;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+}
+
+div#read-frame {
+    text-align: center;
+}
+
+#thumbnail img {
+    border-radius: 10px;
+}
+button#read-button {
+    font-family: 'Tajawal';
+    font-weight: bold;
+    padding: 0.5em;
+    font-size: 16pt;
+    background: linear-gradient(45deg,#00f,#00cc94);
+    color: white;
+    border: navajowhite;
+    box-shadow: 1px 2px 2px #999;
+    border-radius: 10px;
+    cursor: pointer;
+}
+div#describtion {
+    margin-bottom: 1em;
+}

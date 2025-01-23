@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html class="loading" lang="ar">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="/alehyaa/favicon.ico">
+        <link rel="manifest" href="/alehyaa.json" />
+        <meta content="width=device-width, initial-scale=1.0,user-scalable=yes, minimum-scale=0.5, maximum-scale=4.0" name="viewport">
+        <meta property="og:image" content="/alehyaa/icon.png" />
+    </head>
+    <body>
+        <link rel="stylesheet" href="/alehyaa/app.css"/>
+        <div id='loading-frame'>
+            <div id="loading-frame-content">
+            <img alt="" height="150" loading="lazy" src="/alehyaa/icon.png" style="margin: auto;border-radius: 100%;" width="150">
+            <div id="loader"></div>
+            </div>
+
+            <style>
+                #loading-frame {
+                    position: fixed;
+                    z-index: 5;
+                    width: 100vw;
+                    height: 100vh;
+                    background: #eee;
+                    transition: 0.3s;
+                    box-sizing: border-box;
+                    margin: 0;
+                    top: 0;
+                }
+                #loading-frame-content {
+                    margin: auto;
+                    display: block;
+                    margin-top: 50vh;
+                    translate: 0 -50%;
+                    text-align: center;
+                }
+                #loader {
+                  width: 50px;
+                  aspect-ratio: 1;
+                  border-radius: 50%;
+                  border: 8px solid lightblue;
+                  border-right-color: #0075ff;
+                  animation: l2 1s infinite linear;
+                  margin: auto;
+                  box-sizing: border-box;
+                  margin-top: 10px;
+                }
+                @keyframes l2 {to{transform: rotate(1turn)}}
+                html.loading{
+	                overflow:hidden;
+                }
+            </style>
+            <noscript>
+                <style>
+                    #loading-frame{display: none;}
+                    html.loading{
+                        overflow: auto;
+                    }
+                </style>
+            </noscript>
+        </div>
+        <a href="https://al-ehyaa.blogspot.com/" id="alehyaa-head-2">
+            <div id="headWrap">
+            <img alt="مشروع الإحياء" loading="lazy" src="/alehyaa/logo.png" width="728" style="max-width: 100%;height: auto;">
+
+            </div>
+        </a>
+        <div id="read-frame">
+            <div id="thumbnail">
+                <img height="80" width="80" loading="eager"/>
+            </div>
+            <h3 id="title"></h3>
+            <div id="describtion">
+            </div>
+            <button id="read-button"></button>
+        </div>
+    </body>
+    <script src="/alehyaa/web-utils.js"> </script>
+    <script src="/alehyaa/read.js"> </script>
+</html>

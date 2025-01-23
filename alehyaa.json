@@ -1,0 +1,31 @@
+{
+  "name": "مشروع الإحياء",
+  "description": "استمتع بقراءة مقالات تعليمية هادفة في مختلف المجالات.",
+  "dir": "rtl",
+  "lang": "ar-EG",
+  "icons": [
+    {
+      "src": "/alehyaa/icon.png",
+      "type": "image/png",
+      "sizes":"150x150",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/alehyaa/read.html",
+  "display": "minimal-ui",
+  "screenshots": [
+  {
+    "src": "/alehyaa/al-ehyaa.blogspot.com_narrow.png",
+    "sizes": "750x1334",
+    "type": "image/png",
+    "label": "الشاشة الرئيسة"
+  },
+  {
+    "src": "/alehyaa/al-ehyaa.blogspot.com_wide.png",
+    "sizes": "993x963",
+    "type": "image/png",
+    "form_factor": "wide",
+    "label": "الشاشة الرئيسة"
+  }
+]
+}
