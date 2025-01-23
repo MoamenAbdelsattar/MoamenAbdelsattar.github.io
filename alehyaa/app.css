@@ -49,7 +49,7 @@ div#update-notice {
 }
 div#subscribe {
     text-align: center;
-    height: 100vh;
+    /*height: 100vh;*/
     max-width: 900px;
     margin: auto;
     padding: 1em;
@@ -114,11 +114,11 @@ div#no-pwa, div#no-chrome {
     pointer-events: none;
 }
 
-div#subscribe > div {
+/*div#subscribe > div {
     margin-top: 50vh;
     translate: 0 -50%;
-}
-#alehyaa-head{
+}*/
+/*#alehyaa-head{
     border-bottom: unset;
     display: block;
     text-align: center;
@@ -129,8 +129,8 @@ div#subscribe > div {
     top: 0;
     width: 100%;
     box-sizing: border-box;
-}
-#alehyaa-head-2 {
+}*/
+#alehyaa-head,#alehyaa-head-2 {
     border-bottom: unset;
     display: block;
     text-align: center;

@@ -3,6 +3,7 @@ function removeLoading(){
     QD("#loading-frame").classList.add("hide");
     setTimeout(()=>{QD("#loading-frame").style.display = "none"}, 1000);
 }
+QD("div#update-notice").style.display = 'none';
 window.addEventListener("load", () => {
     removeLoading();
     let s = new URLSearchParams(window.location.search);
@@ -17,6 +18,10 @@ window.addEventListener("load", () => {
         })(window, document, "clarity", "script", "pts5mrz88j");
         console.warn("collecting usage data");*/
     }
+    setTimeout(()=>{
+        if(deferredPrompt == null)
+            QD("div#update-notice").style.display = 'block';
+    }, 5000)
 })
 
 const supportsInstallPrompt = 'onbeforeinstallprompt' in window;
