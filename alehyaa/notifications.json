@@ -38,5 +38,18 @@
             }
         },
         "link": "https://badmedicine.pages.dev/"
+    },
+    {
+        "time": 3,
+        "title": "تجربة",
+        "options":{
+            "body": "هذه تجربة للإشعارات اليومية لموقع مشروع الإحياء",
+            "dir": "rtl",
+            "icon":"/alehyaa/icon.png",
+            "requireInteraction": true,
+            "data":{
+                "url":"/2023/12/buoyancy-force.html"
+            }
+        }
     }
 ]
