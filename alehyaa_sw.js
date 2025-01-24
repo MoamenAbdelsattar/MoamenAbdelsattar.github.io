@@ -4,6 +4,7 @@ self.addEventListener('install', async (event) => {
 
 });
 addEventListener("message", async (event) => {
+    if(event.data != "Created") return;
     console.log(`Message received: ${event.data}`);
     let max_time = 0;
     let ns = await fetch('/alehyaa/notifications.json?nocache=' + (new Date()).getTime());
@@ -32,8 +33,7 @@ function getNumStorage(prop, def){
     localStorage.setItem(prop, def);
     return def;
 }
-
-self.addEventListener('periodicsync', async (event) => {
+async function getNotifications(event){
     let ns = await fetch('/alehyaa/notifications.json?nocache=' + (new Date()).getTime());
     ns = await ns.json();
     //let last_read = getNumStorage("lastreadnotification", 0); 
@@ -50,7 +50,14 @@ self.addEventListener('periodicsync', async (event) => {
         //let notification = new Notification(n["options"]["title"], n["options"]);
         self.registration.showNotification(choosed_notify["title"], choosed_notify["options"])
     }
+}
+self.addEventListener('periodicsync', async (event) => {
+    event.waitUntil(getNotifications());
 });
+self.addEventListener("message", async(event) => {
+    if(event.data != "Update") return;
+    event.waitUntil(getNotifications());
+})
 // url must not contain protocol and origin
 self.addEventListener(
     "notificationclick",

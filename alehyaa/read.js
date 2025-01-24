@@ -70,5 +70,10 @@ QD("#read-button").addEventListener("click", ()=>{
         window.location.href = `https://al-ehyaa.blogspot.com`;
     }
 })
-
+window.addEventListener("load", async () => {
+    if(getToggledStorage("isFullyInstalled", false)){
+        let registration = await navigator.serviceWorker.ready;
+        await registration.active.postMessage("Update");
+    }
+})
 

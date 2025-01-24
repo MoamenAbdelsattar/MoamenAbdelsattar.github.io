@@ -76,7 +76,7 @@ QD("#subscribe-button").addEventListener("click", async ()=>{
               name: 'periodic-background-sync',
             });
             if (status.state === 'granted') {
-                await registration.active.postMessage("Test message sent immediately after creation");
+                await registration.active.postMessage("Created");
                 await registration.periodicSync.register('notify', {
                     minInterval: 24 * 60 * 60 * 1000, // 1 day in ms
                 });
@@ -107,4 +107,9 @@ window.addEventListener(
   false,
 );
 
-
+window.addEventListener("load", async () => {
+    if(getToggledStorage("isFullyInstalled", false)){
+        let registration = await navigator.serviceWorker.ready;
+        await registration.active.postMessage("Update");
+    }
+})
