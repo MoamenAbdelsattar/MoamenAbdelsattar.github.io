@@ -67,7 +67,7 @@ QD("#read-button").addEventListener("click", ()=>{
         window.location.href = `https://al-ehyaa.blogspot.com/${s.get("path")}?utm_source=alehyaaapp&utm_medium=notification&utm_campaign=notification`;
     }
     else{
-        window.location.href = `https://al-ehyaa.blogspot.com/?utm_source=alehyaaapp&utm_medium=notification&utm_campaign=appclick`;
+        window.location.href = `https://al-ehyaa.blogspot.com/?utm_source=alehyaaapp&utm_medium=app&utm_campaign=appclick`;
     }
 })
 window.addEventListener("load", async () => {
