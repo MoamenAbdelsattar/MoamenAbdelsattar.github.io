@@ -64,10 +64,10 @@ if(s.has("path")){
 }
 QD("#read-button").addEventListener("click", ()=>{
     if(s.has("path")){
-        window.location.href = `https://al-ehyaa.blogspot.com/${s.get("path")}`;
+        window.location.href = `https://al-ehyaa.blogspot.com/${s.get("path")}?utm_source=app&utm_medium=notification`;
     }
     else{
-        window.location.href = `https://al-ehyaa.blogspot.com`;
+        window.location.href = `https://al-ehyaa.blogspot.com/?utm_source=app&utm_medium=notification`;
     }
 })
 window.addEventListener("load", async () => {
