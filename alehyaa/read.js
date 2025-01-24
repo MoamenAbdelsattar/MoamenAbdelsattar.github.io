@@ -64,10 +64,10 @@ if(s.has("path")){
 }
 QD("#read-button").addEventListener("click", ()=>{
     if(s.has("path")){
-        window.location.href = `https://al-ehyaa.blogspot.com/${s.get("path")}?utm_source=app&utm_medium=notification`;
+        window.location.href = `https://al-ehyaa.blogspot.com/${s.get("path")}?utm_source=alehyaaapp&utm_medium=notification&utm_campaign=notification`;
     }
     else{
-        window.location.href = `https://al-ehyaa.blogspot.com/?utm_source=app&utm_medium=notification`;
+        window.location.href = `https://al-ehyaa.blogspot.com/?utm_source=alehyaaapp&utm_medium=notification&utm_campaign=notification`;
     }
 })
 window.addEventListener("load", async () => {
