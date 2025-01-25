@@ -166,3 +166,6 @@ button#read-button {
 div#describtion {
     margin-bottom: 1em;
 }
+#subscribe a {
+    color: white !important;
+}
