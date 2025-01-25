@@ -40,9 +40,10 @@ function updateSubscribeStatus(){
         if(getToggledStorage("isFullyInstalled", false)){
             oneChildVisible(QD("#subscribe"), QD("#success-frame"))
         }
-        /*if(Notification.permission === "granted"){
+        else if(Notification.permission === "granted"){
             oneChildVisible(QD("#subscribe"), QD("#success-frame"))
-        }*/
+            setToggledStorage("isFullyInstalled", true);
+        }
         else{
             oneChildVisible(QD("#subscribe"), QD("#request-notify-frame"))
         }

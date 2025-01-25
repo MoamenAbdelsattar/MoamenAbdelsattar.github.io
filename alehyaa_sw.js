@@ -54,8 +54,8 @@ async function getNotifications(event){
 self.addEventListener('periodicsync', async (event) => {
     event.waitUntil(getNotifications());
 });
-self.addEventListener("message", async(event) => {
-    if(event.data != "Update") return;
+self.addEventListener("sync", async(event) => {
+    if(event.tag != "Update") return;
     event.waitUntil(getNotifications());
 })
 // url must not contain protocol and origin

@@ -1,9 +1,11 @@
 <div id="vendor"></div>
+<div id="brand"></div>
 <script>
     document.getElementById("vendor").innerHTML = navigator.vendor;
+    document.getElementById("brand").innerHTML = navigator.userAgentData.brands[0].brand;
 </script>
 <style>
-div#vendor {
+div{
     text-align: center;
     font-size: 30pt;
     margin-top: 1em;

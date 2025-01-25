@@ -73,7 +73,14 @@ QD("#read-button").addEventListener("click", ()=>{
 window.addEventListener("load", async () => {
     if(getToggledStorage("isFullyInstalled", false)){
         let registration = await navigator.serviceWorker.ready;
-        await registration.active.postMessage("Update");
+        let tags = await registration.sync.getTags();
+        if(tags.includes("Update")) return;
+        try {
+            await registration.sync.register("Update");
+        } catch {
+            console.log("Background Sync could not be registered!");
+        }
+        //await registration.active.postMessage("Update");
     }
 })
 
