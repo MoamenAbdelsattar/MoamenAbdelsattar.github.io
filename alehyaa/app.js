@@ -57,6 +57,9 @@ function updateSubscribeStatus(){
         oneChildVisible(QD("#subscribe"), QD("#no-pwa"));
         return;
     }
+    if(window.matchMedia("(display-mode: standalone)").matches){
+        setToggledStorage("isInstalled", true);
+    }
     if(getToggledStorage("isInstalled", false)){
         oneChildVisible(QD("#subscribe"), QD("#success-frame"))
     } else{
@@ -93,7 +96,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 QD("#subscribe-button").addEventListener("click", async ()=>{
     let notify = await Notification.requestPermission();
     if(notify == 'granted'){
-        navigator.serviceWorker.register('/alehyaa_sw.js');
+        navigator.serviceWorker.register('/sw.js');
         let registration = await navigator.serviceWorker.ready;
         await registration.active.postMessage("Created");
         
@@ -101,14 +104,17 @@ QD("#subscribe-button").addEventListener("click", async ()=>{
         const { outcome } = await deferredPrompt.userChoice;
         if (outcome === 'accepted') {
             console.log('User accepted the install prompt.');
-            setToggledStorage("isInstalled", true);
-            await registerPeriodicSync();
-            updateSubscribeStatus();
+
         } else if (outcome === 'dismissed') {
             console.log('User dismissed the install prompt');
         }   
     }
 
+    updateSubscribeStatus();
+});
+addEventListener("appinstalled", async (event) => {
+    setToggledStorage("isInstalled", true);
+    await registerPeriodicSync();
     updateSubscribeStatus();
 });
 

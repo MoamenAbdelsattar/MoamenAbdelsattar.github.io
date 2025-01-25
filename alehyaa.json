@@ -12,7 +12,7 @@
     }
   ],
   "start_url": "/alehyaa/read.html",
-  "display": "minimal-ui",
+  "display": "standalone",
   "screenshots": [
   {
     "src": "/alehyaa/al-ehyaa.blogspot.com_narrow.png",
