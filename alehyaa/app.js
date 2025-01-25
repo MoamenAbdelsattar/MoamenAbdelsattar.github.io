@@ -96,7 +96,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 QD("#subscribe-button").addEventListener("click", async ()=>{
     let notify = await Notification.requestPermission();
     if(notify == 'granted'){
-        navigator.serviceWorker.register('/sw.js');
+        navigator.serviceWorker.register('/alehyaa_sw.js');
         let registration = await navigator.serviceWorker.ready;
         await registration.active.postMessage("Created");
         
