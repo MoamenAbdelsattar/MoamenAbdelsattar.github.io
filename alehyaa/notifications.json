@@ -40,6 +40,19 @@
         "link": "https://badmedicine.pages.dev/"
     },
     {
+        "time": 10,
+        "title": "أقدم لكم ميزة متابعة مشروع الإحياء عن طريق الإشعارات",
+        "options":{
+            "body": "لماذا اخترت إضافة ميزة الإشعارات لمدونة الإحياء؟ التفسير في هذا المقال القصير",
+            "dir": "rtl",
+            "icon":"/alehyaa/icon.png",
+            "requireInteraction": true,
+            "data":{
+                "url":"/2025/01/notifications.html"
+            }
+        }
+    },
+    {
         "time": 3,
         "title": "تجربة",
         "options":{
