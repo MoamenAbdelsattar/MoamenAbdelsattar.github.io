@@ -23,36 +23,12 @@ window.addEventListener("load", () => {
             QD("div#update-notice").style.display = 'block';
     }, 5000)
 })
-var browser = (function (agent) {
-    switch (true) {
-        case agent.indexOf("edge") > -1: return "edge";
-        case agent.indexOf("edg/") > -1: return "edge-chromium"; // Match also / to avoid matching for the older Edge
-        case agent.indexOf("opr") > -1 && !!window.opr: return "opera";
-        case agent.indexOf("chrome") > -1 && !!navigator.brave: return "brave";
-        case agent.indexOf("chrome") > -1 && !!window.chrome: return "chrome";
-        case agent.indexOf("trident") > -1: return "ie";
-        case agent.indexOf("firefox") > -1: return "firefox";
-        case agent.indexOf("safari") > -1: return "safari";
-        default: return "other";
-    }
-})(window.navigator.userAgent.toLowerCase());
+
+
 const supportsInstallPrompt = 'onbeforeinstallprompt' in window;
 //let supportsInstallPrompt = false;
 function updateSubscribeStatus(){
-    //var isChromium = !!window.chrome;
-    if(browser != "chrome"){
-        QD("#no-chrome").innerHTML = `
-                <h3>متصفحك لا يدعم تطبيقات الويب التقدمية</h3>
-        <div>إذا كنت تريد مني إرسال إشعارات لك عندما أنشر فصلا أو مقالا جديدا، يرجى زيارتي من متصفح Google Chrome أو Chromium.
-        
-        <a target="_blank" href="https://al-ehyaa.blogspot.com/2025/01/notifications.html#only-chrome">
-            لماذا؟
-        </a>
-        </div>
-        `
-        oneChildVisible(QD("#subscribe"), QD("#no-chrome"));
-        return;
-    }
+    var isChromium = !!window.chrome;
     if(!supportsInstallPrompt){
         oneChildVisible(QD("#subscribe"), QD("#no-pwa"));
         return;
@@ -63,6 +39,19 @@ function updateSubscribeStatus(){
     if(getToggledStorage("isInstalled", false)){
         oneChildVisible(QD("#subscribe"), QD("#success-frame"))
     } else{
+            if(!isChromium){
+                QD("#no-chrome").innerHTML = `
+                        <h3>متصفحك لا يدعم تطبيقات الويب التقدمية</h3>
+                <div>إذا كنت تريد مني إرسال إشعارات لك عندما أنشر فصلا أو مقالا جديدا، يرجى زيارتي من متصفح Google Chrome أو Chromium.
+                
+                <a target="_blank" href="https://al-ehyaa.blogspot.com/2025/01/notifications.html#only-chrome">
+                    لماذا؟
+                </a>
+                </div>
+                `
+                oneChildVisible(QD("#subscribe"), QD("#no-chrome"));
+                return;
+            }
             oneChildVisible(QD("#subscribe"), QD("#request-install-frame"))
     }
 }
