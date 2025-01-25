@@ -13,15 +13,20 @@ addEventListener("message", async (event) => {
         max_time = Math.max(n["time"], max_time);
     }
     await localforage.setItem('lastreadnotification', String(max_time));
+});
+addEventListener("message", async (event) => {
+    if(event.data != "Welcome") return;
     self.registration.showNotification("كل شيء جاهز!", {
         dir: "rtl",
         body: "جهازك مستعد لاستقبال الإشعارات من الموقع",
         icon: "/alehyaa/icon.png",
         data: {
-            url:"https://MoamenAbdelsattar.github.io/alehyaa/read.html"
+            url:"https://MoamenAbdelsattar.github.io/alehyaa/read.html",
+            homepage: true
         }
     })
-});
+})
+
 
 function setNumStorage(prop, value){
     localStorage.setItem(prop, value);
@@ -64,6 +69,10 @@ self.addEventListener(
     function (event) {
         event.notification.close();
         //switch (event.action) {}
+        if(notification.data.homepage){
+            clients.openWindow(`https://MoamenAbdelsattar.github.io/alehyaa/read.html`);
+            return;
+        }
         clients.openWindow(`https://MoamenAbdelsattar.github.io/alehyaa/read.html?describtion=${encodeURIComponent(event.notification.body)}&path=${event.notification.data.url}`);
     },
     false,

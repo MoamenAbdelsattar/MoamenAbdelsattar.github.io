@@ -41,6 +41,15 @@ const supportsInstallPrompt = 'onbeforeinstallprompt' in window;
 function updateSubscribeStatus(){
     //var isChromium = !!window.chrome;
     if(browser != "chrome"){
+        QD("#no-chrome").innerHTML = `
+                <h3>متصفحك لا يدعم تطبيقات الويب التقدمية</h3>
+        <div>إذا كنت تريد مني إرسال إشعارات لك عندما أنشر فصلا أو مقالا جديدا، يرجى زيارتي من متصفح Google Chrome أو Chromium.
+        
+        <a target="_blank" href="https://al-ehyaa.blogspot.com/2025/01/notifications.html#only-chrome">
+            لماذا؟
+        </a>
+        </div>
+        `
         oneChildVisible(QD("#subscribe"), QD("#no-chrome"));
         return;
     }
@@ -49,21 +58,28 @@ function updateSubscribeStatus(){
         return;
     }
     if(getToggledStorage("isInstalled", false)){
-        if(getToggledStorage("isFullyInstalled", false)){
-            oneChildVisible(QD("#subscribe"), QD("#success-frame"))
-        }
-        else if(Notification.permission === "granted"){
-            oneChildVisible(QD("#subscribe"), QD("#success-frame"))
-            setToggledStorage("isFullyInstalled", true);
-        }
-        else{
-            oneChildVisible(QD("#subscribe"), QD("#request-notify-frame"))
-        }
+        oneChildVisible(QD("#subscribe"), QD("#success-frame"))
     } else{
             oneChildVisible(QD("#subscribe"), QD("#request-install-frame"))
     }
 }
-
+async function registerPeriodicSync(){
+    let registration = await navigator.serviceWorker.ready;
+    const status = await navigator.permissions.query({
+        name: 'periodic-background-sync',
+    });
+    if (status.state === 'granted') {
+        await registration.active.postMessage("Welcome");
+        await registration.periodicSync.register('notify', {
+            minInterval: 24 * 60 * 60 * 1000, // 1 day in ms
+        });
+        console.log("registered periodic sync");
+        setToggledStorage("isFullyInstalled", true);
+    }
+    else{
+        console.log("periodic sync denied");
+    }
+}
 // This variable will save the event for later use.
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -75,35 +91,24 @@ window.addEventListener('beforeinstallprompt', (e) => {
     QD("div#update-notice").style.display = 'none';
 });
 QD("#subscribe-button").addEventListener("click", async ()=>{
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') {
-        console.log('User accepted the install prompt.');
-        setToggledStorage("isInstalled", true);
-        updateSubscribeStatus();
-        let notify = await Notification.requestPermission();
-        if(notify == 'granted'){
-            navigator.serviceWorker.register('/alehyaa_sw.js');
-            let registration = await navigator.serviceWorker.ready;
-            const status = await navigator.permissions.query({
-              name: 'periodic-background-sync',
-            });
-            if (status.state === 'granted') {
-                await registration.active.postMessage("Created");
-                await registration.periodicSync.register('notify', {
-                    minInterval: 24 * 60 * 60 * 1000, // 1 day in ms
-                });
-                console.log("registered periodic sync");
-                setToggledStorage("isFullyInstalled", true);
-            }
-            else{
-                console.log("periodic sync denied");
-            }
-            
-        }
-    } else if (outcome === 'dismissed') {
-        console.log('User dismissed the install prompt');
+    let notify = await Notification.requestPermission();
+    if(notify == 'granted'){
+        navigator.serviceWorker.register('/alehyaa_sw.js');
+        let registration = await navigator.serviceWorker.ready;
+        await registration.active.postMessage("Created");
+        
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            console.log('User accepted the install prompt.');
+            setToggledStorage("isInstalled", true);
+            await registerPeriodicSync();
+            updateSubscribeStatus();
+        } else if (outcome === 'dismissed') {
+            console.log('User dismissed the install prompt');
+        }   
     }
+
     updateSubscribeStatus();
 });
 
@@ -114,15 +119,21 @@ window.addEventListener(
   (event) => {
     
     if (event.origin !== "https://al-ehyaa.blogspot.com") return;
-    window.parent.postMessage(getToggledStorage("isFullyInstalled", false), "https://al-ehyaa.blogspot.com")
+    window.parent.postMessage(getToggledStorage("isInstalled", false), "https://al-ehyaa.blogspot.com")
     
   },
   false,
 );
 
 window.addEventListener("load", async () => {
-    if(getToggledStorage("isFullyInstalled", false)){
+    if(getToggledStorage("isInstalled", false)){
         let registration = await navigator.serviceWorker.ready;
-        await registration.active.postMessage("Update");
+        let tags = await registration.sync.getTags();
+        if(tags.includes("Update")) return;
+        try {
+            await registration.sync.register("Update");
+        } catch {
+            console.log("Background Sync could not be registered!");
+        }
     }
 })
