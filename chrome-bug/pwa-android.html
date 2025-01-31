@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="manifest" href="/chrome-bug/bug.json">
+    </head>
+<body>
+    <button onclick="install()" id="install"  disabled>INSTALL</button>
+    <div id="status"></div>
+    <script>
+        var p;
+        window.addEventListener('beforeinstallprompt', async (e) => {
+            e.preventDefault();
+            p = e;
+            document.querySelector("#install").disabled = false;
+        });
+        async function install(){
+            await p.prompt();
+            watchPeriodicSync();
+        }
+        async function watchPeriodicSync(){
+            var times = 0, max_times = 30;
+            document.querySelector("#status").innerText = "Watching periodic sync";
+            async function seeIfGranted(){
+                times++
+                if(times >= max_times) {
+                    document.querySelector("#status").innerText = "Failed to get periodic sync permission";
+                    return;
+                };
+                const status = await navigator.permissions.query({
+                    name: 'periodic-background-sync',
+                });
+                if (status.state === 'granted') {
+                    document.querySelector("#status").innerText = "Periodic Sync is granted";
+                } else {
+                    console.log('Denied periodic sync: trying again after a second');
+                    setTimeout(seeIfGranted, 1000);
+                }
+            }
+            seeIfGranted();
+        }
+    </script>
+</body>
+
+</html>
