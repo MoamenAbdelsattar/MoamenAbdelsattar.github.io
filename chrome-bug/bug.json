@@ -11,12 +11,5 @@
     }
   ],
   "start_url": "/chrome-bug/pwa.html",
-  "display": "standalone",
-  "screenshots": [
-  {
-    "src": "/chrome-bug/screen.png",
-    "sizes": "383x641",
-    "type": "image/png",
-    "label": "NA"
-  }
+  "display": "standalone"
 }
