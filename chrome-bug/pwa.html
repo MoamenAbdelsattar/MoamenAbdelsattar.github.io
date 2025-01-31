@@ -1,22 +1,30 @@
-<button onclick="intall()" disabled>INSTALL</button>
-<link rel="manifest" id="install" href="/chrome-bug/bug.json">
-<script>
-    var p;
-    window.addEventListener('beforeinstallprompt', async (e) => {
-        e.preventDefault();
-        p = e;
-        document.querySelector("#install").disabled = false;
-    });
-    function install(){
-        p.prompt();
-    }
-    navigator.permissions.query({
-        name: 'periodic-background-sync',
-    }).then((s) => {
-        s.onchange = async () => {
-            console.log("periodic-sync-change");
-            await updateSubscribeStatus();
-            await registerPeriodicSync();
-        };
-    });
-</script>
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="manifest" href="/chrome-bug/bug.json">
+    </head>
+<body>
+    <button onclick="intall()" id="install"  disabled>INSTALL</button>
+    <script>
+        var p;
+        window.addEventListener('beforeinstallprompt', async (e) => {
+            e.preventDefault();
+            p = e;
+            document.querySelector("#install").disabled = false;
+        });
+        function install(){
+            p.prompt();
+        }
+        navigator.permissions.query({
+            name: 'periodic-background-sync',
+        }).then((s) => {
+            s.onchange = async () => {
+                console.log("periodic-sync-change");
+                await updateSubscribeStatus();
+                await registerPeriodicSync();
+            };
+        });
+    </script>
+</body>
+
+</html>
