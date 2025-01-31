@@ -1,0 +1,14 @@
+<button onclick="intall()" disabled>INSTALL</button>
+<link rel="manifest" href="/chrome-bug/bug.json">
+<script>
+    function install()
+    navigator.permissions.query({
+        name: 'periodic-background-sync',
+    }).then((s) => {
+        s.onchange = async () => {
+            console.log("periodic-sync-change");
+            await updateSubscribeStatus();
+            await registerPeriodicSync();
+        };
+    });
+</script>

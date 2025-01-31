@@ -1,0 +1,15 @@
+{
+  "name": "Example App",
+  "description": "An example app",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/chrome-bug/icon.png",
+      "type": "image/png",
+      "sizes":"150x150",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/chrome-bug/pwa.html",
+  "display": "standalone"
+}
