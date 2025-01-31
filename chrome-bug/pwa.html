@@ -20,8 +20,6 @@
         }).then((s) => {
             s.onchange = async () => {
                 console.log("periodic-sync-change");
-                await updateSubscribeStatus();
-                await registerPeriodicSync();
             };
         });
     </script>
